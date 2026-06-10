@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Где летом 2026 ждать расширения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF7F2;
+      --beige: #F0EAE0;
+      --border: #DDD5C8;
+      --gold: #C4973A;
+      --gold-light: #F5EDD8;
+      --gold-dark: #8A6420;
+      --burgundy: #7D2E3A;
+      --text: #2A2420;
+      --text-muted: #7A6F68;
+      --text-light: #A89E96;
+      --green: #2E6B52;
+      --green-light: #E8F3EE;
+      --green-dark: #1A4535;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 0 0 4rem;
+    }
+
+    header {
+      background: var(--text);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+    header .eyebrow {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(28px, 6vw, 42px);
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 14px;
+      color: #B0A898;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ИНСТРУКЦИЯ */
+    .instr-wrap {
+      margin-top: 2.5rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .instr-header {
+      background: var(--beige);
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .instr-header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .instr-header-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .instr-header-sub a {
+      color: var(--gold-dark);
+      font-weight: 500;
+    }
+
+    .instr-steps {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .instr-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.1rem;
+    }
+    .instr-step:last-child { margin-bottom: 0; }
+
+    .instr-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--text);
+      color: var(--cream);
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .instr-step-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .instr-step-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* БЛОКИ ПОИСКА СИМВОЛОВ */
+    .symbol-blocks {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .symbol-block {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .symbol-block:last-child { margin-bottom: 0; }
+
+    .symbol-block-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.9rem 1rem;
+    }
+    .symbol-block-header.leo { background: var(--gold-light); }
+    .symbol-block-header.jup { background: var(--green-light); }
+
+    .symbol-glyph {
+      font-size: 28px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .symbol-block-header.leo .symbol-glyph { color: var(--gold-dark); }
+    .symbol-block-header.jup .symbol-glyph { color: var(--green-dark); }
+
+    .symbol-block-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .symbol-block-header.leo .symbol-block-label { color: var(--gold-dark); }
+    .symbol-block-header.jup .symbol-block-label { color: var(--green-dark); }
+
+    .symbol-block-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .symbol-block-body {
+      padding: 0.9rem 1rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      background: #fff;
+    }
+
+    .symbol-block-body strong { color: var(--text); font-weight: 500; }
+
+    .symbol-tip {
+      margin-top: 8px;
+      background: var(--beige);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* КАК ОПРЕДЕЛИТЬ ДОМ */
+    .house-hint {
+      margin: 1.25rem 1.5rem 0;
+      padding: 0 0 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .house-hint-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .house-hint-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .instr-note {
+      margin: 1.25rem 1.5rem;
+      background: var(--text);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      font-size: 13px;
+      color: var(--cream);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* КАЛЬКУЛЯТОР */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .section { margin-top: 2.5rem; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .section-question {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 4vw, 22px);
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .house-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .house-btn {
+      padding: 10px 6px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-align: center;
+      transition: all 0.18s ease;
+      line-height: 1.2;
+    }
+    .house-btn:hover { background: var(--beige); border-color: var(--gold); color: var(--text); }
+    .house-btn.selected-leo { background: var(--gold-light); border-color: var(--gold); color: var(--gold-dark); font-weight: 500; }
+    .house-btn.selected-jup { background: var(--green-light); border-color: var(--green); color: var(--green-dark); font-weight: 500; }
+
+    /* РЕЗУЛЬТАТ */
+    .result-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 2rem;
+    }
+    .result-header {
+      background: var(--text);
+      color: var(--cream);
+      padding: 1.25rem 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .result-body { padding: 1.5rem; }
+    .result-block { margin-bottom: 1.5rem; }
+
+    .result-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .tag-leo { background: var(--gold-light); color: var(--gold-dark); }
+    .tag-jup { background: var(--green-light); color: var(--green-dark); }
+
+    .result-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .result-text { font-size: 14px; color: var(--text-muted); line-height: 1.75; }
+
+    .synthesis-box {
+      background: var(--beige);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin-top: 1.5rem;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    .cta-block {
+      margin-top: 2rem;
+    }
+    .cta-intro {
+      background: var(--burgundy);
+      border-radius: 12px 12px 0 0;
+      padding: 1.75rem 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 4vw, 24px);
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .cta-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+    .diag-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .diag-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: #5C1E28;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .diag-card:last-child {
+      border-radius: 0 0 12px 12px;
+    }
+    .diag-card:hover { background: #6E2432; }
+    .diag-card-icon { font-size: 22px; margin-bottom: 3px; }
+    .diag-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }
+    .diag-card-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+    .diag-card-price {
+      flex-shrink: 0;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .hidden { display: none; }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 400px) {
+      .house-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    .cta-footer {
+      background: #3D1019;
+      border-radius: 0 0 12px 12px;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+    }
+    .cta-footer-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .cta-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cta-btn-tg, .cta-btn-vk {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      border-radius: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.18s;
+    }
+    .cta-btn-tg { background: #2AABEE; color: #fff; }
+    .cta-btn-vk { background: #4C75A3; color: #fff; }
+    .cta-btn-tg:hover, .cta-btn-vk:hover { opacity: 0.88; }
+    .diag-card { cursor: default; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Астрология · Лето 2026</div>
+  <h1>Где тебя ждёт<br>расширение этим летом?</h1>
+  <p>Выбери свои позиции по натальной карте — и узнай, куда придёт рост и как его легче всего принять</p>
+</header>
+
+<div class="container">
+
+  <!-- ИНСТРУКЦИЯ -->
+  <div class="instr-wrap">
+
+    <div class="instr-header">
+      <div class="instr-header-title">Как найти нужные данные в своей карте</div>
+      <div class="instr-header-sub">Строим карту бесплатно на <a href="https://sotis.online" target="_blank" rel="noopener">sotis.online</a> — займёт 3 минуты</div>
+    </div>
+
+    <div class="instr-steps">
+      <div class="instr-step">
+        <div class="instr-num">1</div>
+        <div>
+          <div class="instr-step-title">Зайди на sotis.online</div>
+          <div class="instr-step-text">Открой сайт <a href="https://sotis.online" target="_blank" rel="noopener" style="color:var(--gold-dark);font-weight:500;">sotis.online</a> в браузере</div>
+        </div>
+      </div>
+      <div class="instr-step">
+        <div class="instr-num">2</div>
+        <div>
+          <div class="instr-step-title">Создать новый → Одинарная карта</div>
+          <div class="instr-step-text">Нажми кнопку <strong>«Создать новый»</strong>, в открывшемся меню выбери <strong>«Одинарная карта»</strong></div>
+        </div>
+      </div>
+      <div class="instr-step">
+        <div class="instr-num">3</div>
+        <div>
+          <div class="instr-step-title">Введи данные рождения</div>
+          <div class="instr-step-text">Дату, время и место рождения. Время — по возможности точное, хотя бы примерное. Если не знаешь — спроси маму или посмотри в свидетельстве о рождении.</div>
+        </div>
+      </div>
+      <div class="instr-step">
+        <div class="instr-num">4</div>
+        <div>
+          <div class="instr-step-title">Перед тобой натальная карта</div>
+          <div class="instr-step-text">Появится круг, разделённый на 12 секторов — это твоя карта. Теперь ищем два символа.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- КАК ОПРЕДЕЛИТЬ ДОМ -->
+    <div class="house-hint">
+      <div class="house-hint-title">Как понять, в каком ты доме?</div>
+      <div class="house-hint-text">Карта разделена на 12 частей-секторов — это и есть дома. Они пронумерованы: цифры стоят внутри круга или по краю. Просто смотришь, рядом с каким числом находится нужный символ — это его номер дома.</div>
+    </div>
+
+    <!-- СИМВОЛЫ -->
+    <div class="symbol-blocks">
+
+      <div class="symbol-block">
+        <div class="symbol-block-header leo">
+          <div class="symbol-glyph">♌</div>
+          <div>
+            <div class="symbol-block-label">Шаг 5 — знак Льва</div>
+            <div class="symbol-block-desc">Найди этот символ на карте</div>
+          </div>
+        </div>
+        <div class="symbol-block-body">
+          <strong>Как выглядит:</strong> похож на строчную букву «м» с хвостиком-завитком, или на лежащую волну.<br><br>
+          <strong>Где искать:</strong> символы знаков стоят по внешнему кольцу карты, между секторами. Найди ♌ и посмотри, к какому сектору (дому) он относится — это номер рядом с ним.<br><br>
+          <strong>Это и есть твой ответ на первый вопрос.</strong>
+          <div class="symbol-tip">Пример: символ ♌ стоит между цифрами 10 и 11, ближе к 10 — значит, Лев во 10-м доме.</div>
+        </div>
+      </div>
+
+      <div class="symbol-block">
+        <div class="symbol-block-header jup">
+          <div class="symbol-glyph">♃</div>
+          <div>
+            <div class="symbol-block-label">Шаг 6 — Юпитер</div>
+            <div class="symbol-block-desc">Найди этот символ на карте</div>
+          </div>
+        </div>
+        <div class="symbol-block-body">
+          <strong>Как выглядит:</strong> похож на цифру «4» — вертикальная черта с горизонтальной перекладиной и крючком наверху.<br><br>
+          <strong>Где искать:</strong> символы планет стоят внутри секторов. Найди ♃ и посмотри, в каком секторе (доме) он находится — это его номер.<br><br>
+          <strong>Это твой ответ на второй вопрос.</strong>
+          <div class="symbol-tip">Пример: символ ♃ стоит внутри сектора с цифрой 3 — значит, Юпитер в 3-м доме.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="instr-note">
+      Нашла оба значения? Прокручивай вниз и выбирай свои дома ↓
+    </div>
+
+  </div><!-- /instr-wrap -->
+
+  <div class="divider"></div>
+
+  <!-- КАЛЬКУЛЯТОР -->
+  <div class="section">
+    <div class="section-label">Шаг 1 из 2</div>
+    <div class="section-question">Какой дом у тебя во Льве?</div>
+    <div class="house-grid" id="leoGrid"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-label">Шаг 2 из 2</div>
+    <div class="section-question">В каком доме у тебя стоит Юпитер?</div>
+    <div class="house-grid" id="jupGrid"></div>
+  </div>
+
+  <div id="result" class="hidden"></div>
+
+  <footer>
+    Разборы натальных карт —
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a> ·
+    <a href="https://t.me/" target="_blank">Telegram</a>
+  </footer>
+
+</div>
+
+<script>
+const leoData = {
+  1: { title: "Личность, образ, смелость быть собой", text: "Летом тебе хочется проявляться, выглядеть иначе, чтобы тебя видели. Это сильное время для личного бренда, публичности, смены имиджа. Чем больше прячешься — тем сильнее ощущение, что жизнь проходит мимо." },
+  2: { title: "Деньги, самоценность, личные ресурсы", text: "Летом деньги будут расти там, где ты перестанешь продавать себя с позиции «я тут немного умею». Лев во 2 доме требует признать: у меня есть ценность, за это можно платить больше." },
+  3: { title: "Речь, блог, обучение, коммуникации", text: "Летом тебе нельзя молчать. Расширение идёт через слова — посты, видео, разговоры, переговоры. Чем яснее формулируешь свои идеи, тем больше дверей открывается." },
+  4: { title: "Дом, семья, недвижимость, опора", text: "Летом может захотеться улучшить пространство, переехать или укрепить семью. Лев в 4 доме хочет место, где ты хозяйка и тебе действительно хорошо." },
+  5: { title: "Любовь, дети, творчество, удовольствие", text: "Летом тебе нужно не просто быть полезной, а вернуть себе живость. Рост приходит через удовольствие, творчество, любовь, игру и смелость делать то, от чего горят глаза." },
+  6: { title: "Работа, режим, здоровье, система", text: "Рост придёт не через резкий рывок, а через ежедневную систему. Режим, рабочие процессы, здоровье — и Юпитер даст расширение. Навалишь всё сразу — будет цирк с конями." },
+  7: { title: "Отношения, партнёрство, клиенты", text: "Летом расширение приходит через людей. Не через «я сама всё вывезу», а через партнёрство, клиентов, союзы, договорённости. Юпитер увеличит и хорошее, и чужую наглость — если закрываешь глаза." },
+  8: { title: "Большие деньги, трансформация, глубина", text: "Здесь важно не играть в «я всё контролирую», а честно посмотреть: где завишу, где боюсь, где могу выйти на большие деньги через глубину, психологию, эзотерику." },
+  9: { title: "Обучение, путешествия, смыслы, наставники", text: "Летом будет тянуть за пределы привычного. Учиться, ехать, преподавать, публиковаться. Расширение придёт, когда перестанешь мыслить маленькой комнатой." },
+  10: { title: "Карьера, статус, публичность, признание", text: "Летом Юпитер подсвечивает карьеру. Это не время сидеть за кулисами. Нужно заявлять о своей экспертности и не делать вид, что ты «просто тут немножко помогаешь»." },
+  11: { title: "Аудитория, друзья, сообщество, блог", text: "Летом расширение приходит через людей и аудиторию. Сообщество, команда, коллаборации, клуб, круг единомышленников. Важно не просто мечтать, а выйти к людям со своей идеей." },
+  12: { title: "Подсознание, уединение, закулисье, завершение", text: "Расширение идёт не наружу, а внутрь. Это время готовить большой выход, но пока за кулисами. Важно услышать, что давно просится на завершение или глубокую внутреннюю настройку." }
+};
+
+const jupData = {
+  1: { title: "Через личность и харизму", text: "Возможности приходят, когда не прячешься за чужими правилами. Твой канал роста — быть лицом процесса." },
+  2: { title: "Через деньги и самоценность", text: "Расширяешься, когда чувствуешь свою ценность и умеешь превращать способности в деньги." },
+  3: { title: "Через речь и контент", text: "Твой Юпитер включается через коммуникацию. Тебе нельзя молчать — именно слова открывают двери." },
+  4: { title: "Через дом и внутреннюю базу", text: "Без ощущения дома и безопасности можешь саботировать расширение. База — это не слабость, это условие." },
+  5: { title: "Через творчество и удовольствие", text: "Тебе нельзя жить пресно. Творчество, игра, дети, сцена — именно здесь твой Юпитер работает на полную." },
+  6: { title: "Через систему и ежедневные действия", text: "Тебе важно не ждать вдохновения, а выстраивать процесс. Регулярность — твой канал роста." },
+  7: { title: "Через людей и союзы", text: "Возможности приходят через людей: партнёров, клиентов, союзников. Одиночный режим — не твоя стратегия." },
+  8: { title: "Через трансформацию и глубину", text: "Расширяешься, когда не боишься смотреть в сложные темы. Кризис, психология, чужие ресурсы — это твои инструменты." },
+  9: { title: "Через обучение и большие смыслы", text: "Тебе важно видеть большую картину. Преподавание, путешествия, наставничество — это твой естественный канал." },
+  10: { title: "Через статус и экспертность", text: "Тебе важно идти в масштаб, а не оставаться «маленьким специалистом для своих». Репутация — твой ресурс." },
+  11: { title: "Через аудиторию и сообщество", text: "Расширяешься через людей и масштабные идеи. Блог, команда, сообщество — именно здесь твой рост." },
+  12: { title: "Через интуицию и закулисные процессы", text: "Возможности приходят как будто «из-за кулис» — через внутреннее знание, закрытые проекты, неочевидные связи." }
+};
+
+let selectedLeo = null;
+let selectedJup = null;
+
+function renderGrid(containerId, type) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  for (let i = 1; i <= 12; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'house-btn';
+    btn.textContent = i + ' дом';
+    const selectedClass = type === 'leo' ? 'selected-leo' : 'selected-jup';
+    if ((type === 'leo' && selectedLeo === i) || (type === 'jup' && selectedJup === i)) {
+      btn.classList.add(selectedClass);
+    }
+    btn.addEventListener('click', () => {
+      if (type === 'leo') selectedLeo = i;
+      else selectedJup = i;
+      renderGrid('leoGrid', 'leo');
+      renderGrid('jupGrid', 'jup');
+      renderResult();
+    });
+    el.appendChild(btn);
+  }
+}
+
+function renderResult() {
+  const el = document.getElementById('result');
+  if (!selectedLeo || !selectedJup) { el.classList.add('hidden'); return; }
+  el.classList.remove('hidden');
+
+  const leo = leoData[selectedLeo];
+  const jup = jupData[selectedJup];
+  const leoShort = leo.title.split(',')[0].toLowerCase();
+
+  el.innerHTML = `
+    <div class="result-card">
+      <div class="result-header">Твой расклад на лето 2026</div>
+      <div class="result-body">
+        <div class="result-block">
+          <span class="result-tag tag-leo">♌ Лев в ${selectedLeo} доме — где расширение</span>
+          <div class="result-title">${leo.title}</div>
+          <div class="result-text">${leo.text}</div>
+        </div>
+        <div class="result-block" style="padding-top: 1rem; border-top: 1px solid var(--border);">
+          <span class="result-tag tag-jup">♃ Юпитер в ${selectedJup} доме — как принять рост</span>
+          <div class="result-title">${jup.title}</div>
+          <div class="result-text">${jup.text}</div>
+        </div>
+        <div class="synthesis-box">
+          Летом расширение идёт в сферу <strong>${leoShort}</strong> — это твой главный вектор. А принять и реализовать этот рост тебе проще всего <strong>${jup.title.toLowerCase()}</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-intro">
+        <div class="cta-title">Хочешь разобрать свою карту глубже?</div>
+        <div class="cta-sub">Выбери диагностику, которая откликается — и я разберу твою карту лично</div>
+      </div>
+      <div class="diag-cards">
+        <div class="diag-card">
+          <div class="diag-card-left">
+            <div class="diag-card-icon">💰</div>
+            <div class="diag-card-title">Денежная диагностика</div>
+            <div class="diag-card-desc">Где в карте твои деньги и что их тормозит</div>
+          </div>
+          <div class="diag-card-price">1 888 ₽</div>
+        </div>
+        <div class="diag-card">
+          <div class="diag-card-left">
+            <div class="diag-card-icon">🤍</div>
+            <div class="diag-card-title">Диагностика по отношениям</div>
+            <div class="diag-card-desc">Что карта говорит о твоей личной жизни</div>
+          </div>
+          <div class="diag-card-price">1 888 ₽</div>
+        </div>
+        <div class="diag-card">
+          <div class="diag-card-left">
+            <div class="diag-card-icon">🔮</div>
+            <div class="diag-card-title">Мини-прогноз</div>
+            <div class="diag-card-desc">Что тебя ждёт в ближайшее время по карте</div>
+          </div>
+          <div class="diag-card-price">1 888 ₽</div>
+        </div>
+      </div>
+      <div class="cta-footer">
+        <div class="cta-footer-text">Напиши мне — обсудим, какая диагностика подходит именно тебе</div>
+        <div class="cta-btns">
+          <a class="cta-btn-tg" href="https://t.me/jain1109" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.64l-1.68 7.92c-.12.56-.45.7-.91.43l-2.52-1.86-1.22 1.17c-.13.13-.25.25-.51.25l.18-2.56 4.65-4.2c.2-.18-.04-.28-.31-.1L7.84 14.5l-2.47-.77c-.54-.17-.55-.54.11-.8l9.65-3.72c.45-.16.84.11.7.43z" fill="currentColor"/></svg>
+            Записаться в Telegram
+          </a>
+          <a class="cta-btn-vk" href="https://vk.com/im?sel=-224753072" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5.07 13.5h-1.5c-.57 0-.74-.45-1.76-1.48-.88-.86-1.27-.97-1.49-.97-.3 0-.39.08-.39.5v1.35c0 .35-.11.56-1.03.56-1.52 0-3.2-.92-4.38-2.63C5.1 11.1 4.6 9.3 4.6 9.08c0-.22.08-.43.5-.43h1.5c.37 0 .51.17.65.57.72 2.07 1.92 3.88 2.42 3.88.18 0 .27-.09.27-.56V10.6c-.06-1-.58-1.09-.58-1.44 0-.17.14-.35.36-.35h2.36c.31 0 .42.17.42.53v2.87c0 .31.14.42.22.42.18 0 .34-.11.68-.45 1.05-1.18 1.8-2.99 1.8-2.99.1-.22.27-.43.64-.43h1.5c.45 0 .55.23.45.54-.19.88-2.01 3.44-2.01 3.44-.16.26-.22.37 0 .66.16.22.68.67 1.03 1.08.63.72 1.12 1.32 1.25 1.74.11.41-.1.62-.51.62z" fill="currentColor"/></svg>
+            Записаться ВКонтакте
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+renderGrid('leoGrid', 'leo');
+renderGrid('jupGrid', 'jup');
+</script>
+
+</body>
+</html>
